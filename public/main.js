@@ -1,5 +1,5 @@
 async function init() {
-   const rustApp = null;
+   let rustApp = null;
 
    try {
       rustApp = await import('../pkg/index');
@@ -16,7 +16,7 @@ async function init() {
    fileReader.onloadend = () => {
       let base64 = fileReader.result.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
 
-      console.log(base64);
+      rustApp.grayscale(base64);
    };
 
    input.addEventListener('change', () => {
